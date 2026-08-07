@@ -1,0 +1,270 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { menu } from "../data/menu";
+
+const features = [
+  {
+    icon: "☕",
+    title: "Locally Roasted",
+    text: "Beans sourced and roasted within Johor, brewed the old kopitiam way and the new espresso way.",
+  },
+  {
+    icon: "🌿",
+    title: "Natural, Unhurried",
+    text: "Rattan chairs, timber tables, plants by the window — a space built for lingering, not rushing.",
+  },
+  {
+    icon: "📶",
+    title: "Made to Work & Meet",
+    text: "Fast wifi, plenty of plug points, and quiet corners for laptops, catch-ups, and quiet mornings.",
+  },
+];
+
+const testimonials = [
+  {
+    quote: "Feels like my grandmother's kopitiam had a baby with a proper espresso bar. The Kopi Peng is unmatched.",
+    name: "Aisyah R.",
+    context: "Local regular",
+  },
+  {
+    quote: "Best nasi lemak set I've had in JB, and the coffee alone is worth the drive from Singapore.",
+    name: "Wei Jian T.",
+    context: "Weekend visitor",
+  },
+  {
+    quote: "Quiet, green, and the wifi actually holds up. My go-to spot for calls between meetings.",
+    name: "Priya M.",
+    context: "Remote worker",
+  },
+];
+---
+
+<Layout title="Home">
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-coffee-950 text-cream-light">
+    <img
+      src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1800&auto=format&fit=crop"
+      alt="Lattes with latte art surrounded by potted plants on a wooden table"
+      class="absolute inset-0 h-full w-full object-cover opacity-40"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-coffee-950/90 via-coffee-950/85 to-coffee-950"></div>
+    <div
+      class="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-terracotta/20 blur-3xl"
+    >
+    </div>
+    <div
+      class="pointer-events-none absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-sage/20 blur-3xl"
+    >
+    </div>
+
+    <div class="relative mx-auto max-w-6xl px-5 sm:px-8 py-24 sm:py-32 text-center">
+      <p class="uppercase tracking-[0.3em] text-terracotta text-xs sm:text-sm font-semibold mb-5">
+        Johor Bahru · Est. 2019
+      </p>
+      <h1 class="font-display text-4xl sm:text-6xl font-semibold leading-tight max-w-3xl mx-auto">
+        Slow Kopi. Local Soul.
+      </h1>
+      <p class="mt-6 text-base sm:text-lg text-cream-light/80 max-w-xl mx-auto leading-relaxed">
+        A cozy corner of JB where old-school kopitiam brews meet honest food
+        and a quiet, green kind of hospitality.
+      </p>
+
+      <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/menu"
+          class="w-full sm:w-auto inline-flex justify-center items-center rounded-full bg-terracotta hover:bg-terracotta-dark transition-colors px-8 py-3.5 font-semibold text-cream-light"
+        >
+          View Our Menu
+        </a>
+        <a
+          href="/contact"
+          class="w-full sm:w-auto inline-flex justify-center items-center rounded-full border border-cream-light/30 hover:border-cream-light/70 transition-colors px-8 py-3.5 font-semibold text-cream-light"
+        >
+          Visit Us Today
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story strip -->
+  <section class="py-16 sm:py-20 border-b border-coffee-800/10">
+    <div class="mx-auto max-w-6xl px-5 sm:px-8 grid md:grid-cols-2 gap-10 items-center">
+      <img
+        src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1200&auto=format&fit=crop"
+        alt="Cozy Kopi Local interior with rattan chairs, timber tables, and potted plants"
+        class="aspect-[4/3] w-full rounded-2xl object-cover shadow-lg"
+        loading="lazy"
+      />
+      <div>
+        <p class="uppercase tracking-[0.2em] text-terracotta text-xs font-semibold mb-3">
+          Our Story
+        </p>
+        <h2 class="font-display text-3xl sm:text-4xl font-semibold text-coffee-950 mb-4">
+          Born from a JB kopitiam, grown with the neighborhood.
+        </h2>
+        <p class="text-coffee-800/90 leading-relaxed mb-4">
+          Kopi Local started as a single sock-brewed kopi stall passed down
+          through family. Today we still pull our kopi the traditional way —
+          just alongside espresso, better toast, and a room full of plants
+          and daylight.
+        </p>
+        <p class="text-coffee-800/90 leading-relaxed">
+          Everything on our menu is made fresh, sourced from growers and
+          roasters we know by name, in a space designed to slow you down.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu teaser -->
+  <section class="py-16 sm:py-20 bg-cream-light">
+    <div class="mx-auto max-w-6xl px-5 sm:px-8">
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <p class="uppercase tracking-[0.2em] text-terracotta text-xs font-semibold mb-3">
+          What We Serve
+        </p>
+        <h2 class="font-display text-3xl sm:text-4xl font-semibold text-coffee-950">
+          Explore the menu
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {menu.map((category) => (
+          <a
+            href={`/menu#${category.id}`}
+            class="group rounded-2xl border border-coffee-900/10 bg-white/60 p-6 hover:border-terracotta hover:shadow-lg transition-all"
+          >
+            <h3 class="font-display text-xl font-semibold text-coffee-950 group-hover:text-terracotta transition-colors">
+              {category.name}
+            </h3>
+            <p class="mt-2 text-sm text-coffee-800/80 leading-relaxed">
+              {category.blurb}
+            </p>
+            <span class="mt-4 inline-block text-sm font-semibold text-terracotta">
+              See items →
+            </span>
+          </a>
+        ))}
+      </div>
+
+      <div class="text-center mt-10">
+        <a
+          href="/menu"
+          class="inline-flex items-center rounded-full bg-coffee-950 hover:bg-coffee-900 transition-colors px-8 py-3.5 font-semibold text-cream-light"
+        >
+          View Full Menu &amp; Prices
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features / ambience -->
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-6xl px-5 sm:px-8 grid sm:grid-cols-3 gap-8">
+      {features.map((f) => (
+        <div class="text-center sm:text-left">
+          <div class="text-4xl mb-4">{f.icon}</div>
+          <h3 class="font-display text-xl font-semibold text-coffee-950 mb-2">
+            {f.title}
+          </h3>
+          <p class="text-sm text-coffee-800/80 leading-relaxed">{f.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-16 sm:py-20 bg-coffee-900 text-cream-light">
+    <div class="mx-auto max-w-6xl px-5 sm:px-8">
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <p class="uppercase tracking-[0.2em] text-terracotta text-xs font-semibold mb-3">
+          Loved Locally
+        </p>
+        <h2 class="font-display text-3xl sm:text-4xl font-semibold">
+          What our regulars say
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {testimonials.map((t) => (
+          <div class="rounded-2xl bg-coffee-950/60 border border-coffee-800 p-6">
+            <p class="text-terracotta mb-3" aria-hidden="true">★★★★★</p>
+            <p class="text-cream-light/90 leading-relaxed mb-4">"{t.quote}"</p>
+            <p class="text-sm font-semibold">{t.name}</p>
+            <p class="text-xs text-cream-light/60">{t.context}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Location teaser -->
+  <section class="py-16 sm:py-20 bg-cream-light">
+    <div class="mx-auto max-w-6xl px-5 sm:px-8 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <p class="uppercase tracking-[0.2em] text-terracotta text-xs font-semibold mb-3">
+          Find Us
+        </p>
+        <h2 class="font-display text-3xl sm:text-4xl font-semibold text-coffee-950 mb-4">
+          Tucked in Taman Century, JB
+        </h2>
+        <p class="text-coffee-800/90 leading-relaxed mb-2">
+          23, Jalan Dato Sulaiman, Taman Century, 80250 Johor Bahru, Johor
+        </p>
+        <p class="text-coffee-800/90 leading-relaxed mb-6">
+          Open daily · 8:00 AM – 10:00 PM
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href="/contact"
+            class="inline-flex items-center rounded-full bg-terracotta hover:bg-terracotta-dark transition-colors px-7 py-3 font-semibold text-cream-light"
+          >
+            Get Directions
+          </a>
+          <a
+            href="https://wa.me/60123456789"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center rounded-full border border-coffee-900/20 hover:border-coffee-900/50 transition-colors px-7 py-3 font-semibold text-coffee-950"
+          >
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+      <img
+        src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?q=80&w=1400&auto=format&fit=crop"
+        alt="Wide view of Kopi Local's dining area with wooden tables and warm lighting"
+        class="aspect-video w-full rounded-2xl object-cover border border-coffee-900/10 shadow-lg"
+        loading="lazy"
+      />
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16 sm:py-24 bg-coffee-950 text-cream-light text-center bg-grain">
+    <div class="mx-auto max-w-2xl px-5 sm:px-8">
+      <h2 class="font-display text-3xl sm:text-4xl font-semibold mb-4">
+        Come say hi. First kopi's better with a friend.
+      </h2>
+      <p class="text-cream-light/80 mb-8">
+        Drop by, or reach out first — we're happy to help with reservations,
+        events, or catering.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/menu"
+          class="w-full sm:w-auto inline-flex justify-center items-center rounded-full bg-terracotta hover:bg-terracotta-dark transition-colors px-8 py-3.5 font-semibold text-cream-light"
+        >
+          Browse the Menu
+        </a>
+        <a
+          href="/contact"
+          class="w-full sm:w-auto inline-flex justify-center items-center rounded-full border border-cream-light/30 hover:border-cream-light/70 transition-colors px-8 py-3.5 font-semibold text-cream-light"
+        >
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

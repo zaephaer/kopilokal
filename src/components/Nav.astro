@@ -1,0 +1,92 @@
+---
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/menu", label: "Menu" },
+  { href: "/contact", label: "Contact" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-coffee-950/95 backdrop-blur supports-[backdrop-filter]:bg-coffee-950/90 text-cream-light border-b border-coffee-800">
+  <nav class="mx-auto max-w-6xl px-5 sm:px-8 flex items-center justify-between h-16">
+    <a href="/" class="font-display text-xl sm:text-2xl font-semibold tracking-wide text-cream-light">
+      Kopi Local
+    </a>
+
+    <ul class="hidden md:flex items-center gap-8 font-medium">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class:list={[
+              "transition-colors hover:text-terracotta",
+              currentPath === link.href ? "text-terracotta" : "text-cream-light/90",
+            ]}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <div class="hidden md:block">
+      <a
+        href="https://wa.me/60123456789"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded-full bg-terracotta hover:bg-terracotta-dark transition-colors px-5 py-2.5 text-sm font-semibold text-cream-light"
+      >
+        Chat on WhatsApp
+      </a>
+    </div>
+
+    <button
+      id="menu-toggle"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      class="md:hidden inline-flex flex-col justify-center gap-1.5 w-9 h-9"
+    >
+      <span class="block h-0.5 w-6 bg-cream-light transition-transform"></span>
+      <span class="block h-0.5 w-6 bg-cream-light transition-opacity"></span>
+      <span class="block h-0.5 w-6 bg-cream-light transition-transform"></span>
+    </button>
+  </nav>
+
+  <div id="mobile-menu" class="md:hidden hidden border-t border-coffee-800 bg-coffee-950">
+    <ul class="flex flex-col px-5 py-4 gap-4 font-medium">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class:list={[
+              "block py-1",
+              currentPath === link.href ? "text-terracotta" : "text-cream-light/90",
+            ]}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+      <li>
+        <a
+          href="https://wa.me/60123456789"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 rounded-full bg-terracotta px-5 py-2.5 text-sm font-semibold text-cream-light"
+        >
+          Chat on WhatsApp
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  toggle?.addEventListener("click", () => {
+    const isOpen = menu?.classList.toggle("hidden") === false;
+    toggle.setAttribute("aria-expanded", String(isOpen));
+  });
+</script>

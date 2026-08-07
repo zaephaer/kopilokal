@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", serif;
+  --font-body: "Work Sans", sans-serif;
+
+  --color-cream: #f8f1e4;
+  --color-cream-light: #fffcf6;
+  --color-coffee-950: #24150e;
+  --color-coffee-900: #2f1c13;
+  --color-coffee-800: #402719;
+  --color-coffee-700: #5a3825;
+  --color-coffee-600: #7a4f34;
+  --color-coffee-400: #a97d5c;
+  --color-terracotta: #c4622d;
+  --color-terracotta-dark: #a34d21;
+  --color-sage: #7c8b6f;
+  --color-sage-dark: #5f6d54;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-coffee-900);
+  font-family: var(--font-body);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* subtle organic paper/grain texture for the "natural environment" mood */
+.bg-grain {
+  background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(36, 21, 14, 0.06) 1px,
+      transparent 0
+    );
+  background-size: 22px 22px;
+}

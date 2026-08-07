@@ -1,0 +1,55 @@
+---
+const hours = [
+  { day: "Mon – Fri", time: "8:00 AM – 9:00 PM" },
+  { day: "Sat – Sun", time: "9:00 AM – 10:00 PM" },
+];
+---
+
+<footer class="bg-coffee-950 text-cream-light/80 bg-grain">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8 py-14 grid gap-10 sm:grid-cols-3">
+    <div>
+      <p class="font-display text-2xl text-cream-light mb-3">Kopi Local</p>
+      <p class="text-sm leading-relaxed max-w-xs">
+        Slow-brewed kopi, honest food, and a quiet corner of JB — roasted
+        local, served warm, meant for lingering.
+      </p>
+      <div class="flex gap-4 mt-5">
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-terracotta transition-colors">Instagram</a>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:text-terracotta transition-colors">Facebook</a>
+      </div>
+    </div>
+
+    <div>
+      <p class="font-semibold text-cream-light mb-3">Visit Us</p>
+      <p class="text-sm leading-relaxed">
+        23, Jalan Dato Sulaiman,<br />
+        Taman Century, 80250<br />
+        Johor Bahru, Johor
+      </p>
+      <a href="/contact" class="inline-block mt-3 text-sm text-terracotta hover:text-terracotta-dark font-medium">
+        Get directions →
+      </a>
+    </div>
+
+    <div>
+      <p class="font-semibold text-cream-light mb-3">Opening Hours</p>
+      <ul class="text-sm space-y-1">
+        {hours.map((h) => (
+          <li class="flex justify-between gap-6">
+            <span>{h.day}</span>
+            <span>{h.time}</span>
+          </li>
+        ))}
+      </ul>
+      <a href="tel:+60712345678" class="inline-block mt-3 text-sm text-terracotta hover:text-terracotta-dark font-medium">
+        +60 7-123 4567
+      </a>
+    </div>
+  </div>
+
+  <div class="border-t border-coffee-800">
+    <p class="mx-auto max-w-6xl px-5 sm:px-8 py-5 text-xs text-cream-light/50">
+      © {new Date().getFullYear()} Kopi Local. Made with love in Johor Bahru.
+    </p>
+  </div>
+</footer>
