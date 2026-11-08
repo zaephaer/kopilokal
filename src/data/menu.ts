@@ -1,11 +1,11 @@
-export interface MenuItem {
+interface MenuItem {
   name: string;
   description: string;
   price: string;
   tags?: string[];
 }
 
-export interface MenuCategory {
+interface MenuCategory {
   id: string;
   name: string;
   blurb: string;

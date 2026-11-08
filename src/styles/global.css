@@ -10,9 +10,6 @@
   --color-coffee-950: #24150e;
   --color-coffee-900: #2f1c13;
   --color-coffee-800: #402719;
-  --color-coffee-700: #5a3825;
-  --color-coffee-600: #7a4f34;
-  --color-coffee-400: #a97d5c;
   --color-terracotta: #c4622d;
   --color-terracotta-dark: #a34d21;
   --color-sage: #7c8b6f;
@@ -27,10 +24,6 @@ body {
   background-color: var(--color-cream);
   color: var(--color-coffee-900);
   font-family: var(--font-body);
-}
-
-.font-display {
-  font-family: var(--font-display);
 }
 
 /* subtle organic paper/grain texture for the "natural environment" mood */

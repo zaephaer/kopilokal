@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { menu } from "../data/menu";
+import { site } from "../data/site";
 
 const features = [
   {
@@ -210,7 +211,7 @@ const testimonials = [
           Tucked in Taman Century, JB
         </h2>
         <p class="text-coffee-800/90 leading-relaxed mb-2">
-          23, Jalan Dato Sulaiman, Taman Century, 80250 Johor Bahru, Johor
+          {site.address}
         </p>
         <p class="text-coffee-800/90 leading-relaxed mb-6">
           Open daily · 8:00 AM – 10:00 PM
@@ -223,7 +224,7 @@ const testimonials = [
             Get Directions
           </a>
           <a
-            href="https://wa.me/60123456789"
+            href={site.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center rounded-full border border-coffee-900/20 hover:border-coffee-900/50 transition-colors px-7 py-3 font-semibold text-coffee-950"

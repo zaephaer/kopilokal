@@ -1,4 +1,6 @@
 ---
+import { site } from "../data/site";
+
 const hours = [
   { day: "Mon – Fri", time: "8:00 AM – 9:00 PM" },
   { day: "Sat – Sun", time: "9:00 AM – 10:00 PM" },
@@ -21,11 +23,7 @@ const hours = [
 
     <div>
       <p class="font-semibold text-cream-light mb-3">Visit Us</p>
-      <p class="text-sm leading-relaxed">
-        23, Jalan Dato Sulaiman,<br />
-        Taman Century, 80250<br />
-        Johor Bahru, Johor
-      </p>
+      <p class="text-sm leading-relaxed">{site.address}</p>
       <a href="/contact" class="inline-block mt-3 text-sm text-terracotta hover:text-terracotta-dark font-medium">
         Get directions →
       </a>
@@ -41,8 +39,8 @@ const hours = [
           </li>
         ))}
       </ul>
-      <a href="tel:+60712345678" class="inline-block mt-3 text-sm text-terracotta hover:text-terracotta-dark font-medium">
-        +60 7-123 4567
+      <a href={site.phoneHref} class="inline-block mt-3 text-sm text-terracotta hover:text-terracotta-dark font-medium">
+        {site.phone}
       </a>
     </div>
   </div>

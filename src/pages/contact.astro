@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { site } from "../data/site";
 
 const hours = [
   { day: "Monday – Friday", time: "8:00 AM – 9:00 PM" },
@@ -11,28 +12,27 @@ const quickActions = [
   {
     icon: "💬",
     title: "WhatsApp",
-    detail: "+60 12-345 6789",
-    href: "https://wa.me/60123456789",
+    detail: site.whatsappLabel,
+    href: site.whatsapp,
     cta: "Chat now",
   },
   {
     icon: "📞",
     title: "Call Us",
-    detail: "+60 7-123 4567",
-    href: "tel:+60712345678",
+    detail: site.phone,
+    href: site.phoneHref,
     cta: "Call now",
   },
   {
     icon: "✉️",
     title: "Email",
-    detail: "hello@kopilocal.my",
-    href: "mailto:hello@kopilocal.my",
+    detail: site.email,
+    href: `mailto:${site.email}`,
     cta: "Send email",
   },
 ];
 
-const mapEmbedSrc =
-  "https://www.google.com/maps/embed?pb=!1m2!2m1!1s23%2C+Jalan+Dato+Sulaiman%2C+Taman+Century%2C+80250+Johor+Bahru%2C+Johor%2C+Malaysia";
+const mapEmbedSrc = `https://www.google.com/maps/embed?pb=!1m2!2m1!1s${encodeURIComponent(`${site.address}, Malaysia`).replace(/%20/g, "+")}`;
 ---
 
 <Layout title="Contact" description="Get in touch with Kopi Local — find our address, opening hours, and how to reach us for reservations, events, and catering.">
@@ -94,11 +94,7 @@ const mapEmbedSrc =
           <h3 class="font-display text-xl font-semibold text-coffee-950 mb-2">
             Address
           </h3>
-          <p class="text-coffee-800/90 leading-relaxed">
-            23, Jalan Dato Sulaiman,<br />
-            Taman Century, 80250<br />
-            Johor Bahru, Johor, Malaysia
-          </p>
+          <p class="text-coffee-800/90 leading-relaxed">{site.address}, Malaysia</p>
         </div>
 
         <div class="mt-8">
@@ -126,7 +122,7 @@ const mapEmbedSrc =
           back to you shortly.
         </p>
 
-        <form id="contact-form" class="space-y-5">
+        <form action={`mailto:${site.email}`} method="post" enctype="text/plain" class="space-y-5">
           <div>
             <label for="name" class="block text-sm font-semibold text-coffee-950 mb-1.5">
               Name
@@ -189,25 +185,8 @@ const mapEmbedSrc =
           >
             Send Inquiry
           </button>
-
-          <p id="form-status" class="text-sm text-sage-dark hidden" role="status">
-            Thanks! We've received your message and will reply shortly.
-          </p>
         </form>
       </div>
     </div>
   </section>
 </Layout>
-
-<script>
-  const form = document.getElementById("contact-form") as HTMLFormElement | null;
-  const status = document.getElementById("form-status");
-
-  form?.addEventListener("submit", (e) => {
-    e.preventDefault();
-    // TODO: wire this up to a form backend (e.g. Formspree, Netlify Forms)
-    // before launch — this currently only confirms client-side.
-    form.reset();
-    status?.classList.remove("hidden");
-  });
-</script>
